@@ -3,6 +3,9 @@
 
 p_hp = 50
 b_hp = 50
+# SECURITY AUDIT (#2): Hardcoded credential creates a backdoor. Anyone who
+# reads this public repo can enter this code at the [c]heat prompt and set
+# the boss's HP to 0. FIX: remove this variable and the cheat block below.
 SECRET_CODE = "ADMIN_ACCESS_2025"
 MAX_HP = 50
 
