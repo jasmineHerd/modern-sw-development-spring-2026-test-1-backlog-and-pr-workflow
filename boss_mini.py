@@ -3,10 +3,6 @@
 
 p_hp = 50
 b_hp = 50
-# SECURITY AUDIT (#2): Hardcoded credential creates a backdoor. Anyone who
-# reads this public repo can enter this code at the [c]heat prompt and set
-# the boss's HP to 0. FIX: remove this variable and the cheat block below.
-SECRET_CODE = "ADMIN_ACCESS_2025"
 MAX_HP = 50
 
 def attack():
@@ -29,17 +25,14 @@ def heal():
 # --- Simple Game Loop ---
 while p_hp > 0 and b_hp > 0:
     print(f"\nPlayer: {p_hp} | Boss: {b_hp}")
-    choice = input("Action [a]ttack, [h]eal, [c]heat: ").lower()
+    choice = input("Action [a]ttack, [h]eal: ").lower()
 
     if choice == 'a':
         attack()
     elif choice == 'h':
         heal()
-    elif choice == 'c':
-        if input("Code: ") == SECRET_CODE:
-            b_hp = 0
     else:
-        print("Invalid choice! Please choose 'a', 'h', or 'c'.")
+        print("Invalid choice! Please choose 'a' or 'h'.")
 
     if b_hp <= 0:
         print("Victory!")
