@@ -3,7 +3,6 @@
 
 p_hp = 50
 b_hp = 50
-SECRET_CODE = "ADMIN_ACCESS_2025"
 MAX_HP = 50
 
 def attack():
@@ -26,17 +25,14 @@ def heal():
 # --- Simple Game Loop ---
 while p_hp > 0 and b_hp > 0:
     print(f"\nPlayer: {p_hp} | Boss: {b_hp}")
-    choice = input("Action [a]ttack, [h]eal, [c]heat: ").lower()
+    choice = input("Action [a]ttack, [h]eal: ").lower()
 
     if choice == 'a':
         attack()
     elif choice == 'h':
         heal()
-    elif choice == 'c':
-        if input("Code: ") == SECRET_CODE:
-            b_hp = 0
     else:
-        print("Invalid choice! Please choose 'a', 'h', or 'c'.")
+        print("Invalid choice! Please choose 'a' or 'h'.")
 
     if b_hp <= 0:
         print("Victory!")
